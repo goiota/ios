@@ -14,14 +14,13 @@ goiotaAppCtrl.controller('InitWalletCtrl', function (
 
   $scope.$on('$ionicView.enter', function() {
 
-    IotaService.initIota($rootScope.seed);
-    IotaService.initAccountData();
-
 
   });
 
 
   $scope.$on('getAccountData:done', function(event,data) {
+
+    LoadingService.hide();
 
     $state.go('dashboard');
 

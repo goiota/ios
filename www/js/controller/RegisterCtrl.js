@@ -47,7 +47,7 @@ goiotaAppCtrl.controller('RegisterCtrl', function (
 
             window.plugins.uniqueDeviceID.get(function success(uuid) {
 
-                SecureStorageService.setSeed(uuid,$scope.newSeed);
+                SecureStorageService.setSeed(uuid,$scope.newSeed,true);
 
               },function error(error){}
             );
@@ -60,7 +60,7 @@ goiotaAppCtrl.controller('RegisterCtrl', function (
           }
 
 
-          SecureStorageService.setSeed($scope.registerData.pin,$scope.newSeed);
+          SecureStorageService.setSeed($scope.registerData.pin,$scope.newSeed,false);
 
           IotaService.initIota($scope.newSeed);
           IotaService.initAccountData();

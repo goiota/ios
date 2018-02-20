@@ -11,6 +11,8 @@ goiotaAppService.service("SecureStorageService", function ($rootScope,ToastMsgSe
 				secureStorage.get(
 						function (value) {
 							$rootScope.seed = value;
+							IotaService.initIota(value);
+							IotaService.initAccountData();
 						},
 						function (error) {
 
@@ -61,7 +63,9 @@ goiotaAppService.service("SecureStorageService", function ($rootScope,ToastMsgSe
 	};
 
 
-	this.setSeed = function (_pin,_seed) {
+	this.setSeed = function (_pin,_seed,_isFingerPrint) {
+
+		var varName = _isFingerPrint ? 'GoIota_SS_FP' : 'GoIota_SS_PC';
 
 		secureStorage = new cordova.plugins.SecureStorage(
 		function () {
@@ -72,7 +76,7 @@ goiotaAppService.service("SecureStorageService", function ($rootScope,ToastMsgSe
 			)
 		},
 		function (error) {},
-		'GoIota_SS_PC'
+		varName
 		);
 
 	}

@@ -4,6 +4,7 @@ goiotaAppCtrl.controller('SendCtrl', function (
   $http,
   $state,
   $window,
+  $ionicPopup,
   IotaService,
   ToastMsgService,
   LoadingService
@@ -66,6 +67,33 @@ goiotaAppCtrl.controller('SendCtrl', function (
 
 
   }
+
+  $scope.showConfirmTransactionModal = function() {
+
+    if(this.sendMoneyForm.$valid) {
+
+          if($scope.isAddress($scope.sendData.address)) {
+
+              var confirmPopup = $ionicPopup.confirm({
+                title: 'Confirm Transaction',
+                template: 'Do you really wont to transfer ' +  $scope.sendData.amount + ' ' +  $scope.sendData.unit + ' ?'
+              });
+
+              confirmPopup.then(function(res) {
+                if(res) {
+                  $scope.transferPayment();
+                } else {
+
+                }
+              });
+
+          } else {
+            ToastMsgService.error("ERROR.ADDRESS_NOT_VALID");
+          }
+
+    }
+
+  };
 
   $scope.scanQRCode = function () {
 

@@ -199,6 +199,43 @@ blockquote {
     border-left: 5px solid #fff;
 }
 
+.popup {
+    width: 90vw;
+}
+
+.popup-container .popup {
+    background-color: rgb(57, 70, 80);
+}
+
+.popup-title {
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.popup-body {
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.popup-buttons .button-default {
+  background-color: transparent;
+  color:#fff;
+  border:1px solid #fff;
+}
+
+.popup-buttons .button-positive {
+  background-color: #70d447;
+  color:#fff;
+  border:1px solid #70d447;
+}
+
+
+
 /*
   Loading View
 */
@@ -1029,6 +1066,7 @@ z-index: 99;
 
 #view_send_money .row_qrcode .item-input input {
     padding-right: 0px;
+    color:#fff;
 }
 
 #view_send_money .row_qrcode button {
