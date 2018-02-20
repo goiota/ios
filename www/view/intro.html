@@ -1,0 +1,57 @@
+
+<ion-view title="Intro" id="view_intro" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="padding">
+
+    <ion-slides slider="introSlider" class="padding" show-pager="false">
+
+      <ion-slide-page>
+
+
+
+
+            <div class="row">
+                <div class="col">
+
+                    <img src="img/logo.png" class="logo"/>
+
+                </div>
+            </div>
+
+            <div class="row row-center">
+                <div class="col h2 color-white text-center">
+
+
+                      {{'LABEL.GO_IOTA_CLAIM' | translate }}
+
+
+                </div>
+            </div>
+
+            <div class="row row-footer">
+                <div class="col">
+
+                  <button class="button button-block button-light" ui-sref="login">
+                    {{'LABEL.LOGIN' | translate }}
+                  </button>
+
+                  <button class="button button-block button-outline" ui-sref="register">
+                    {{'LABEL.CREATE_ACCOUNT' | translate }}
+                  </button>
+
+                </div>
+            </div>
+
+      </ion-slide-page>
+
+    </ion-slides>
+
+    <div id="particles-intro" class="particles"></div>
+
+  </ion-content>
+
+</ion-view>

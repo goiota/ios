@@ -1,0 +1,179 @@
+<ion-view title="Dashboard" id="view_dashboard" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="">
+
+
+    <div class="card card-balance rm-margin">
+
+      <div class="item item-text-wrap text-center amount" ng-show="balance.amount != 0">
+        {{balance.amount}} {{balance.unit}}
+      </div>
+
+      <div class="item item-text-wrap text-center amount" ng-show="balance.amount == 0">
+        0 i
+      </div>
+
+      <div class="badge badge-light emv" ng-show="balance.amount >= 1">
+        EMV: $ {{marketCapData.price_usd * balance.exchangeAmount | number: 2}}
+      </div>
+
+      <div class="badge badge-light emv" ng-show="balance.amount == 0">
+        EMV: $ {{0.00| number: 2}}
+      </div>
+
+
+      <div id="particles-dashboard" class="particles"></div>
+
+    </div>
+
+    <ion-scroll zooming="false" direction="y" class="padding" style="height:70%;">
+
+      <div class="no-transactions color-red" ng-show="balance.amount == 0">
+        {{'LABEL.NO_TRANSACTIONS' | translate }}
+      </div>
+
+      <ion-list ng-show="balance.amount != 0">
+        <ion-checkbox ng-model="showZeroTransactions" class="aCheckbox color-white pull-right">
+
+        </ion-checkbox>
+      </ion-list>
+
+      <ion-list ng-repeat="(key, aTransaction) in transactions" ng-show="(aTransaction[0].value == 0 && showZeroTransactions) || aTransaction[0].value != 0">
+
+          <div class="row row-transaction" ng-class="$last ? 'last' : ''">
+
+            <div class="col">
+
+              <blockquote class="{{ (aTransaction[0].isSentTransaction == true && aTransaction[0].value != 0) ? 'blockquote-color-red' : ''}} {{ (aTransaction[0].isSentTransaction == false && aTransaction[0].value != 0) ? 'blockquote-color-green' : ''}}">
+              </blockquote>
+
+            </div>
+
+            <div class="col col-85">
+
+                <ion-item class="card">
+
+                  <div class="amount">
+                    {{aTransaction[0].isSentTransaction ? '-' : ''}}{{aTransaction[0].value}} {{aTransaction[0].unit}}
+                  </div>
+
+                  <div class="infos">
+
+                    <div class="date">
+                      {{aTransaction[0].attachmentTimestamp | date: 'dd.MM.yyyy HH:mm'}}
+                    </div>
+
+                    <div class="status">
+                      {{aTransaction[0].persistence ? 'STATUS.CONFIRMED' : 'STATUS.PENDING' | translate }}
+                    </div>
+
+                  </div>
+
+
+                  <ion-option-button class="button-default" ng-click="openTransactionDetailModal(aTransaction)">
+                    <i class="ion-eye"></i>
+                  </ion-option-button>
+
+
+                </ion-item>
+
+            </div>
+
+          </div>
+
+
+
+      </ion-list>
+
+
+    </ion-scroll>
+
+
+  </ion-content>
+
+  <ion-floating-menu backdrop="false" is-centered="true" ng-click="activateMenuBtn()">
+      <!--<ion-floating-item ng-click="showSettings()" icon="ion-gear-a" text="Settings"></ion-floating-item>-->
+      <ion-floating-item ng-click="reloadTransactions()" icon="ion-refresh" text="Refresh"></ion-floating-item>
+      <ion-floating-item ng-click="goToMarketCap()" icon="ion-social-usd" text="Market Cap"></ion-floating-item>
+      <ion-floating-item ng-click="goToSendMoney()" icon="ion-arrow-left-c" text="Send"></ion-floating-item>
+      <ion-floating-item ng-click="goToReceiveMoney()" icon="ion-arrow-right-c" text="Receive"></ion-floating-item>
+  </ion-floating-menu>
+
+
+
+  <script id="transactionDetail-modal.html" type="text/ng-template">
+    <ion-modal-view id="transactionDetailModal">
+      <ion-header-bar>
+
+        <h1 class="title title-center">
+           Details
+        </h1>
+
+        <button class="button button-clear button-primary" ng-click="closeTransactionDetailModal()">
+          <i class="ion-android-close"></i>
+        </button>
+
+      </ion-header-bar>
+      <ion-content class="padding">
+
+        <div class="row">
+          <div class="col">
+
+            <h4 class="color-white">
+              Bundle
+            </h4>
+
+            <p class="font-light color-white" ng-click="copyToClipboard('BUNDLE',selectedTransactionDetails[0].bundle)">
+              {{selectedTransactionDetails[0].bundle}}
+            </p>
+
+            <h4 class="color-white">Address</h4>
+
+            <p class="font-light color-white" ng-click="copyToClipboard('ADDRESS',selectedTransactionDetails[0].address)">
+              {{selectedTransactionDetails[0].address}}
+            </p>
+
+          </div>
+        </div>
+
+
+        <div class="card" ng-repeat="aTransaction in selectedTransactionDetails">
+
+          <div class="item">
+
+            <h2 class="color-white">
+            {{aTransaction.isSentTransaction ? '-' : ''}}{{aTransaction.value}} {{aTransaction.unit}}
+            </h2>
+            <p class="color-white">
+              {{aTransaction.attachmentTimestamp | date: 'dd.MM.yyyy HH:mm'}}
+              <span class="pull-right {{aTransaction.persistence ? 'color-green ' : 'color-orange' }}">
+                {{aTransaction.persistence ? 'STATUS.CONFIRMED' : 'STATUS.PENDING' | translate }}
+              </span>
+            </p>
+
+          </div>
+
+          <div class="item item-body">
+
+
+            <h3 class="rm-margin color-white">Hash</h3>
+
+            <p class="rm-margin color-white" ng-click="copyToClipboard('HASH',aTransaction.hash)">
+              {{aTransaction.hash}}
+            </p>
+
+
+          </div>
+
+        </div>
+
+      </ion-content>
+    </ion-modal-view>
+
+  </script>
+
+</ion-view>

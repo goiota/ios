@@ -1,0 +1,93 @@
+<ion-view title="SendMoney" id="view_send_money" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="">
+
+
+    <div class="card card-header rm-margin">
+
+      <div class="item item-text-wrap text-center headline">
+        {{ 'PAGE.SEND.HEADLINE' | translate }}
+      </div>
+
+      <div id="particles-send" class="particles"></div>
+
+    </div>
+
+      <ion-scroll zooming="false" direction="y" class="padding" style="height:70%;">
+
+        <form id="sendMoneyForm" name="sendMoneyForm" class=""  novalidate ng-submit="transferPayment()">
+
+
+
+            <div class="row row_amount {{sendMoneyForm.amount.$invalid && sendMoneyForm.$submitted ? 'row_amount_error' : ''}} {{sendData.amount <= 0  && sendMoneyForm.$submitted  ? 'row_amount_error' : ''}}">
+              <div class="col">
+                <label class="item item-input">
+                  <input type="text" name="amount" ui-number-mask="2" ng-model="sendData.amount" required>
+                </label>
+                <select ng-model="sendData.unit">
+                  <option selected>i</option>
+                  <option>Ki</option>
+                  <option>Mi</option>
+                  <option>Gi</option>
+                  <option>Ti</option>
+                  <option>Pi</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="card">
+
+              <div class="item item-body">
+
+
+                <div class="row row_qrcode {{sendMoneyForm.address.$invalid && sendMoneyForm.$submitted ? 'row_qrcode_error' : ''}} {{!isAddress(sendData.address) && sendMoneyForm.$submitted ? 'row_qrcode_error' : ''}}">
+                  <div class="col">
+                    <label class="item item-input">
+                      <input type="text" placeholder="Address" name="address" ng-model="sendData.address" required>
+                    </label>
+                    <button type="button" class="button button-light" ng-click="scanQRCode()">
+                      <i class="icon ion-ios-barcode-outline"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="row row_msg">
+                  <div class="col">
+                    <label class="item item-input">
+                      <input type="text" placeholder="Message" ng-model="sendData.message">
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="row row_action_btn">
+                <div class="col">
+
+                  <button type="submit" class="button button-outline button-block button-light pull-right">
+                    {{'BUTTON.SEND' | translate }}
+                  </button>
+
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+        </form>
+
+    </ion-scroll>
+
+  </ion-content>
+
+
+  <ion-floating-button click="goToDashboard()" has-footer="false"  is-centered="true" icon="ion-ios-arrow-back" >
+  </ion-floating-button>
+
+</ion-view>

@@ -1,0 +1,221 @@
+
+<ion-view title="Login" id="view_login" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="padding">
+
+    <ion-slide-box slider="loginSlider" class="" show-pager="false" delegate-handle="login-slide" ng-init="lockLoginSlide()">
+
+      <ion-slide>
+
+        <form id="loginForm" name="loginForm" class=""  novalidate ng-submit="login()">
+
+          <div class="row">
+              <div class="col">
+
+                  <img src="img/logo.png" class="logo"/>
+
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+
+                  <p class="headline">
+                    {{'LABEL.ENTER_SEED' | translate }}
+                  </p>
+
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+
+                <div class="list">
+                  <i class="icon ion-ios-barcode-outline barcode" ng-click="scanQRCode()"></i>
+                  <label class="item item-input item-stacked-label bg-color-white">
+                    <span class="input-label">Seed</span>
+                    <textarea rows="3" cols="40" text-maxlength="81" wrap="off" name="seed" placeholder="Enter Seed" ng-model="loginData.seed" required></textarea>
+                  </label>
+                </div>
+
+              </div>
+          </div>
+
+
+          <div class="row row-footer">
+              <div class="col">
+
+                <button class="button button-block button-light" type="submit">
+                  {{'BUTTON.NEXT' | translate }}
+                </button>
+
+                <button class="button button-block button-outline color-white" ui-sref="intro">
+                  {{'BUTTON.BACK' | translate }}
+                </button>
+
+              </div>
+          </div>
+
+        </form>
+
+      </ion-slide>
+
+
+      <ion-slide>
+
+        <div class="row">
+            <div class="col">
+
+                <img src="img/logo.png" class="logo"/>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+
+                <p class="headline">
+                  {{'LABEL.HOW_TO_SECURE_APP' | translate }}
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col text-center">
+
+              <button class="button button-clear button-light btn-secure-type" ng-click="loginData.useFingerprint = true;goToNextLoginStep(2)">
+                <img src="img/icon/fingerprint.png" ng-show="!isIphoneX" />
+                <img src="img/icon/faceId.png" ng-show="isIphoneX" />
+
+                <span class="color-white">
+                  {{isIphoneX ? 'FaceId' : 'Fingerprint'}}
+                </span>
+              </button>
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+
+            <div class="col text-center">
+
+              <button class="button button-clear button-light btn-secure-type" ng-click="loginData.useFingerprint = false;goToNextLoginStep(2)">
+                <img src="img/icon/pin-code.png" />
+                <span class="color-white">
+                  {{'LABEL.PIN_CODE' | translate }}
+                </span>
+              </button>
+
+            </div>
+
+        </div>
+
+        <div class="row row-footer">
+            <div class="col">
+
+              <button class="button button-block button-outline color-white" ng-click="goToNextLoginStep(0)">
+                {{'BUTTON.BACK' | translate }}
+              </button>
+
+            </div>
+        </div>
+
+      </ion-slide>
+
+
+      <ion-slide>
+
+        <form id="loginPinForm" name="loginPinForm" class=""  novalidate ng-submit="validatePin()">
+
+
+              <div class="row">
+                  <div class="col">
+
+                      <img src="img/logo.png" class="logo"/>
+
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col">
+
+                      <p class="headline" ng-show="!loginData.useFingerprint">
+                         {{'LABEL.ENTER_PIN_CODE' | translate }}
+                      </p>
+
+                      <p class="headline" ng-show="loginData.useFingerprint">
+                         {{'LABEL.FALLBACK_ENTER_PIN_CODE' | translate }}
+                      </p>
+
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col">
+
+                        <input type="password"  name="pin-code" placeholder="____" ng-model="loginData.pin" class="pinCode" disabled></input>
+
+                  </div>
+              </div>
+
+
+              <bc-keypad
+                bc-number-model="loginData.pin"
+                bc-max-length="4"
+                bc-left-button="backspace"
+              ></bc-keypad>
+
+        </form>
+
+      </ion-slide>
+
+
+        <ion-slide>
+
+          <div class="row">
+              <div class="col">
+
+                  <img src="img/logo.png" class="logo"/>
+
+              </div>
+          </div>
+
+          <div class="row">
+              <div class="col">
+
+                  <p class="headline">
+                     {{'LABEL.WAIT_TILL_CONFIGURATED' | translate }}
+                  </p>
+
+              </div>
+          </div>
+
+          <div class="row row-loading">
+              <div class="col text-center">
+
+                <i class="ion-load-c"></i>
+                <br />
+                <span>
+                  {{ 'LOADING.LABEL' | translate }}
+                </span>
+
+              </div>
+          </div>
+
+        </ion-slide>
+
+
+      </ion-slide-box>
+
+      <div id="particles-login" class="particles"></div>
+
+  </ion-content>
+
+</ion-view>

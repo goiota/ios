@@ -1,0 +1,122 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "ionic-angular@legacy",
+        "scope": null,
+        "escapedName": "ionic-angular",
+        "name": "ionic-angular",
+        "rawSpec": "legacy",
+        "spec": "legacy",
+        "type": "tag"
+      },
+      "/Users/mehdi.afridi/Entwicklung/Ionic/iota/wallet"
+    ]
+  ],
+  "_from": "ionic-angular@legacy",
+  "_id": "ionic-angular@1.3.5",
+  "_inCache": true,
+  "_location": "/ionic-angular",
+  "_nodeVersion": "6.11.5",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/ionic-angular-1.3.5.tgz_1509641614390_0.9622924078721553"
+  },
+  "_npmUser": {
+    "name": "mhartington",
+    "email": "mikehartington@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "ionic-angular@legacy",
+    "scope": null,
+    "escapedName": "ionic-angular",
+    "name": "ionic-angular",
+    "rawSpec": "legacy",
+    "spec": "legacy",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/ionic-angular/-/ionic-angular-1.3.5.tgz",
+  "_shasum": "ed97140427c369f5ba250b2a0b8b5a777b5845f0",
+  "_shrinkwrap": null,
+  "_spec": "ionic-angular@legacy",
+  "_where": "/Users/mehdi.afridi/Entwicklung/Ionic/iota/wallet",
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-v1/issues"
+  },
+  "codename": "hong kong",
+  "dependencies": {},
+  "description": "This is the repo for Ionic 1.x. If you're looking for the latest version (>= 2.0) of Ionic, please visit the main [Ionic](https://github.com/ionic-team/ionic) repo.",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "ed97140427c369f5ba250b2a0b8b5a777b5845f0",
+    "tarball": "https://registry.npmjs.org/ionic-angular/-/ionic-angular-1.3.5.tgz"
+  },
+  "homepage": "https://github.com/ionic-team/ionic-v1#readme",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "mhartington",
+      "email": "mikehartington@gmail.com"
+    },
+    {
+      "name": "maxlynch",
+      "email": "max@ionic.io"
+    },
+    {
+      "name": "kensodemann",
+      "email": "ken.sodemann@gmail.com"
+    },
+    {
+      "name": "jgw96",
+      "email": "jgw9617@gmail.com"
+    },
+    {
+      "name": "perrygovier",
+      "email": "perry@ionic.io"
+    },
+    {
+      "name": "manucorporat",
+      "email": "manu.mtza@gmail.com"
+    },
+    {
+      "name": "danbucholtz",
+      "email": "dan.bucholtz@gmail.com"
+    },
+    {
+      "name": "jthoms1",
+      "email": "jthoms1@gmail.com"
+    },
+    {
+      "name": "adamdbradley",
+      "email": "hi+adam@ionicframework.com"
+    },
+    {
+      "name": "brandyscarney",
+      "email": "brandy@ionic.io"
+    },
+    {
+      "name": "tlancina",
+      "email": "tim@ionic.io"
+    }
+  ],
+  "name": "ionic-angular",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "## Ionic 1.x\n\nThis is the repo for Ionic 1.x. If you're looking for the latest version (>= 2.0) of Ionic, please visit the main [Ionic](https://github.com/ionic-team/ionic) repo.\n\nFor new apps, we *strongly* recommend the [latest version of Ionic](https://github.com/ionic-team/ionic) which comes with the latest version of Angular, many new components, enhanced performance, and more.\n\nFor more information on Ionic 1.x, please read the [original README.md](README_OLD.md)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "url": "git://github.com/ionic-team/ionic-v1.git"
+  },
+  "scripts": {},
+  "version": "1.3.5"
+}

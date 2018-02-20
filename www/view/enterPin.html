@@ -1,0 +1,53 @@
+
+<ion-view title="Login" id="view_login" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="padding">
+
+        <form id="loginPinForm" name="loginPinForm" class=""  novalidate ng-submit="validatePin()">
+
+
+              <div class="row">
+                  <div class="col">
+
+                      <img src="img/logo.png" class="logo"/>
+
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col">
+
+                      <p class="headline">
+                        {{'LABEL.LOGIN' | translate }}
+                      </p>
+
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col">
+
+                        <input type="password"  name="pin-code" placeholder="____" ng-model="loginData.pin" class="pinCode" disabled></input>
+
+                  </div>
+              </div>
+
+
+              <bc-keypad
+                bc-number-model="loginData.pin"
+                bc-max-length="4"
+                bc-left-button="backspace"
+              ></bc-keypad>
+
+        </form>
+
+
+        <div id="particles-enterpin" class="particles"></div>
+
+  </ion-content>
+
+</ion-view>

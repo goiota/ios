@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget id="com.av.iota.wallet" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>GoIota</name>
+    <description>IOTA Wallet</description>
+    <author email="hi@ionicframework" href="https://www.goiota.io/">GoIota Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-navigation href="http://ionic.local/*" />
@@ -18,16 +18,11 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="AutoHideSplashScreen" value="false" />
     <preference name="FadeSplashScreenDuration" value="300" />
-
-    <!--
-      Change these to configure how the splashscreen displays and fades in/out.
-      More info here: https://github.com/apache/cordova-plugin-splashscreen
-    -->
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -85,9 +80,22 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
-    <plugin name="cordova-plugin-statusbar" spec="2.2.1" />
-    <plugin name="cordova-plugin-device" spec="1.1.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
+    <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-plugin-email-composer" spec="^0.8.12" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
+    <plugin name="com.verso.cordova.clipboard" spec="https://github.com/ibnclaudius/CordovaClipboard" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="^7.0.2">
+        <variable name="CAMERA_USAGE_DESCRIPTION" value="To scan barcodes" />
+    </plugin>
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-statusbar" spec="https://github.com/apache/cordova-plugin-statusbar.git" />
+    <plugin name="cordova-plugin-touch-id" spec="https://github.com/EddyVerbruggen/cordova-plugin-touch-id">
+        <variable name="FACEID_USAGE_DESCRIPTION" value=" " />
+    </plugin>
+    <plugin name="cordova-plugin-nativestorage" spec="^2.2.2" />
+    <plugin name="cordova-plugin-secure-storage" spec="^2.6.8" />
+    <plugin name="cordova-plugin-uniquedeviceid" spec="^1.3.2" />
+    <engine name="ios" spec="^4.5.4" />
 </widget>

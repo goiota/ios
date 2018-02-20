@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: cdvfile: gap:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *">
+
+    <title>GoIota</title>
+
+    <link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+
+
+    <link href="lib/floating-menu/ion-floating-menu.min.css" rel="stylesheet" type="text/css"/>
+    <link href="lib/toast/iziToast.min.css" rel="stylesheet"></link>
+    <link href="lib/keypad/angular-keypad.min.css" rel="stylesheet"></link>
+
+
+    <link href="css/goiota.fonts.min.css" rel="stylesheet">
+    <link href="css/goiota.min.css" rel="stylesheet">
+
+    <script src="lib/iota/iota.min.js"></script>
+
+    <script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+    <script src="lib/particles/particles.min.js"></script>
+
+    <script src="lib/goiota.min.js"></script>
+
+    <script src="cordova.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/translation.js"></script>
+
+    <script src="js/controller/MainCtrl.js"></script>
+    <script src="js/controller/IntroCtrl.js"></script>
+    <script src="js/controller/MarketCapCtrl.js"></script>
+    <script src="js/controller/DashboardCtrl.js"></script>
+    <script src="js/controller/SendCtrl.js"></script>
+    <script src="js/controller/ReceiveCtrl.js"></script>
+    <script src="js/controller/InitWalletCtrl.js"></script>
+    <script src="js/controller/LoginCtrl.js"></script>
+    <script src="js/controller/RegisterCtrl.js"></script>
+    <script src="js/controller/EnterPinCtrl.js"></script>
+
+
+    <script src="js/service/MainService.js"></script>
+    <script src="js/service/LoadingService.js"></script>
+    <script src="js/service/MarketCapService.js"></script>
+    <script src="js/service/ToastMsgService.js"></script>
+    <script src="js/service/IotaService.js"></script>
+    <script src="js/service/AuthService.js"></script>
+    <script src="js/service/SecureStorageService.js"></script>
+
+
+    <script src="lib/uimask/angular-input-masks-standalone.min.js"></script>
+    <script src="lib/translation/angular-translate.js"></script>
+    <script src="lib/floating-menu/ion-floating-menu.min.js" type="text/javascript"></script>
+    <script src="lib/underscore/underscore.js"></script>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/qrcode/kjua-0.1.1.min.js"></script>
+    <script src="lib/toast/iziToast.min.js"></script>
+    <script src="lib/keypad/angular-keypad.min.js"></script>
+    <script src="lib/keypad/angular-ripple.js"></script>
+
+
+  </head>
+
+  <body ng-app="goiotaApp">
+
+    <ion-nav-bar class"bar-light">
+  		<ion-nav-back-button class="button-clear">
+    		<i class="ion-chevron-left"></i> Back
+  		</ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view overflow-scroll="true" class="">
+
+
+    </ion-nav-view>
+
+
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<ion-view title="MarketCap" id="view_marketCap" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="">
+
+
+    <div class="card card-header rm-margin">
+
+      <div class="item item-text-wrap text-center headline">
+        {{ 'PAGE.MARKETCAP.HEADLINE' | translate }}
+      </div>
+
+      <div id="particles-marketcap" class="particles"></div>
+
+    </div>
+
+    <ion-scroll zooming="false" direction="y" class="padding" style="height:70%;">
+
+      <div class="row">
+        <div class="col col-20 col-offset-60">
+          <button class="button button-light button-currency" onclick="$('.button-currency').addClass('button-outline');$(this).toggleClass('button-outline')" ng-click="marketCapDisplayUSD = true">
+            {{ 'CURRENCY.USD.LONG' | translate }}
+          </button>
+        </div>
+        <div class="col col-20">
+          <button class="button button-light button-currency button-outline" onclick="$('.button-currency').addClass('button-outline');$(this).toggleClass('button-outline')" ng-click="marketCapDisplayUSD = false">
+            {{ 'CURRENCY.EUR.LONG' | translate }}
+          </button>
+        </div>
+      </div>
+
+
+      <div class="coinmarketcap-currency-widget padding">
+
+        <h3 class="color-white">
+          {{ 'PAGE.MARKETCAP.LABEL.BALANCE' | translate }}:   <span>{{marketCapDisplayUSD ? 'CURRENCY.USD.SHORT' : 'CURRENCY.EUR.SHORT'  | translate}} {{marketCapDisplayUSD ? marketValue.price_usd * balance.exchangeAmount : marketValue.price_eur * balance.exchangeAmount | number: 2}}</span>
+        </h3>
+
+        <div class="wrapper" style="">
+            <div>
+                <div class="header" style="">
+                    <span style="">
+                      <span style="color-white">
+                        IOTA (MIOTA)
+                      </span>
+                    </span>
+                    <br>
+                    <span class="amount color-white">
+                        {{marketCapDisplayUSD ? marketValue.price_usd  : marketValue.price_eur | number: 2}} {{marketCapDisplayUSD ? 'CURRENCY.USD.LONG' : 'CURRENCY.EUR.LONG'  | translate}}
+                        <span class="{{marketValue.percent_change_24h < 0 ? 'color-red' : 'color-green'}}">
+                            ({{marketValue.percent_change_24h | number: 2}} %)
+                        </span>
+                    </span>
+                </div>
+                <div class="logo">
+                    <img src="https://files.coinmarketcap.com/static/img/coins/64x64/iota.png">
+                </div>
+            </div>
+
+            <div class="content" style="">
+
+              <div class="rank color-white" style="">
+                  {{ 'PAGE.MARKETCAP.LABEL.RANK' | translate }}
+                  <br>
+                  <span style="">
+                    {{marketValue.rank}}
+                  </span>
+              </div>
+
+              <div class="cap color-white" style="">
+                {{ 'PAGE.MARKETCAP.LABEL.MARKETCAP' | translate }}
+                <br>
+                <span style="">
+                  {{marketCapDisplayUSD ? 'CURRENCY.USD.SHORT' : 'CURRENCY.EUR.SHORT'  | translate}}{{marketCapDisplayUSD ? marketValue.market_cap_usd / 1000000000 : marketValue.market_cap_eur / 1000000000 | number: 2}} B
+                </span>
+              </div>
+
+              <div class="volume color-white" style="">
+                {{ 'PAGE.MARKETCAP.LABEL.VOLUME' | translate }}
+                <br>
+                <span style="">
+                  {{marketCapDisplayUSD ? 'CURRENCY.USD.SHORT' : 'CURRENCY.EUR.SHORT'  | translate}}{{marketCapDisplayUSD ? marketValue['24h_volume_usd'] / 1000000 :  marketValue['24h_volume_eur'] / 1000000 | number: 2}} M
+                </span>
+              </div>
+
+            </div>
+
+            <div class="powerd_by color-white">
+              <span>
+                {{ 'PAGE.MARKETCAP.LABEL.POWERD_BY' | translate }}
+              </span>
+            </div>
+
+          </div>
+
+      </div>
+
+
+
+    </ion-scroll>
+
+
+  </ion-content>
+
+
+  <ion-floating-button click="goToDashboard()" has-footer="false"  is-centered="true" icon="ion-ios-arrow-back" >
+  </ion-floating-button>
+
+</ion-view>

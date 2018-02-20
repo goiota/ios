@@ -1,5 +1,12 @@
 {
-  "name": "wallet",
-  "app_id": "",
-  "type": "ionic1"
+  "name": "GoIOTA",
+  "app_id": "com.av.iota.wallet",
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  },
+  "watchPatterns": [
+    "scss/**/*"
+  ]
 }

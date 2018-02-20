@@ -1,0 +1,73 @@
+<ion-view title="ReceiveMoney" id="view_receive_money" hide-nav-bar="true">
+
+  <ion-nav-buttons side="left">
+
+  </ion-nav-buttons>
+
+  <ion-content scroll="false" class="">
+
+
+    <div class="card card-header rm-margin">
+
+      <div class="item item-text-wrap text-center headline">
+        {{ 'PAGE.RECEIVE.HEADLINE' | translate }}
+      </div>
+
+      <div id="particles-receive" class="particles"></div>
+
+    </div>
+
+    <ion-scroll zooming="false" direction="y" class="padding" style="height:70%;">
+
+      <div id="qrcodeReceive" class="text-center">
+
+      </div>
+
+
+      <div class="list card">
+
+        <div class="item item-body">
+
+          <p class="text-center rm-margin-top color-white">
+            {{receiveAddress}}
+          </p>
+
+          <hr />
+
+          <p class="text-center rm-margin-bottom">
+            <a class="subdued button button-light text-center" ng-click="copyToClipboard()"><i class="ion-document"></i>
+              {{ 'BUTTON.COPY' | translate }}
+            </a>
+            <a class="subdued button button-light text-center" ng-click="sendEmail()"><i class="ion-paper-airplane"></i>
+              {{ 'BUTTON.EMAIL' | translate }}
+            </a>
+            <a class="subdued button button-light text-center last" ng-click="sendWhatsapp()"><i class="ion-social-whatsapp-outline"></i>
+              {{ 'BUTTON.WHATSAPP' | translate }}
+            </a>
+          </p>
+
+          <div class="row row_action_btn">
+            <div class="col">
+
+              <button type="button" class="button button-outline button-block button-light pull-right" ng-click="getNewAddress()">
+                {{'BUTTON.NEW_ADDRESS' | translate }}
+              </button>
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </ion-scroll>
+
+
+  </ion-content>
+
+
+  <ion-floating-button click="goToDashboard()" has-footer="false"  is-centered="true" icon="ion-ios-arrow-back" >
+  </ion-floating-button>
+
+</ion-view>
