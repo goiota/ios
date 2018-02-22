@@ -1,6 +1,6 @@
 {
   "name": "GoIOTA",
-  "app_id": "com.av.iota.wallet",
+  "app_id": "com.goiota.app",
   "type": "ionic1",
   "integrations": {
     "gulp": {},

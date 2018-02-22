@@ -28,7 +28,7 @@
                 <label class="item item-input">
                   <input type="text" name="amount" ui-number-mask="2" ng-model="sendData.amount" required>
                 </label>
-                <select ng-model="sendData.unit">
+                <select ng-model="sendData.unit" ng-change="changeUnit()">
                   <option selected>i</option>
                   <option>Ki</option>
                   <option>Mi</option>

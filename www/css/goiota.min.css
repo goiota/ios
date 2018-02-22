@@ -136,7 +136,7 @@ ion-content {
 }
 
 .modal-backdrop, .modal-backdrop-bg {
-    z-index: 99999;
+    z-index: 99;
 }
 
 .col-offset-60 {
@@ -200,7 +200,7 @@ blockquote {
 }
 
 .popup {
-    width: 90vw;
+    width: 90vw !important;
 }
 
 .popup-container .popup {

@@ -14,7 +14,8 @@ goiotaApp.config(['$translateProvider', function($translateProvider){
       "NOT_ENOUGH_BALANCE"  : "You don't have enough Balance. Please check your Balance.",
       "ENTER_CUSTOM_NODE"  : "Please enter a correct Url.",
       "NODE_DOES_NOT_SUPPORT_ATTACH_TO_TANGLE" : "Your Custom Node does not support AttachToTangle command.",
-      "NODE_NOT_AVAILABLE" : "Current Node is not responding. Please try later or enter a new Node."
+      "NODE_NOT_AVAILABLE" : "Current Node is not responding. Please try later or enter a new Node.",
+      "ENTER_SEND_AMOUNT" : "Please enter a Amount."
     },
     "INFO" : {
       "SUCCESS_TRANSACTION" : "Your Transaction is confirmed",
@@ -68,7 +69,7 @@ goiotaApp.config(['$translateProvider', function($translateProvider){
           "GENERATE_NEW" : "Generate New Seed"
         },
         "SEND_TRANSFER" : {
-          "CONFIRM_QUESTION" : "Do you really wont to transfer",
+          "CONFIRM_QUESTION" : "Do you really want to transfer",
           "HEADER" : "Confirm Transaction",
           "SUBHEADLINE" : "LOREM LOREM LOREM"
         },
@@ -96,11 +97,11 @@ goiotaApp.config(['$translateProvider', function($translateProvider){
             "SEND_TRANSFER" : "Transfer",
             "DONATENOW" : "Donate Now",
             "COPY_TO_CLIP" : "copy to clipboard",
-            "WAIT_TILL_CONFIGURATED" : "Please wait till your Wallet will be configurated.",
-            "FALLBACK_ENTER_PIN_CODE" : "Please enter a fallback Pin-Code for your TouchId",
-            "ENTER_PIN_CODE" : "Please enter your Pin-Code, to Secure your App.",
+            "WAIT_TILL_CONFIGURATED" : "Please wait till your Wallet will be configurated. This can take a while",
+            "FALLBACK_ENTER_PIN_CODE" : "Please enter a 4-digit fallback Pin-Code for your TouchId",
+            "ENTER_PIN_CODE" : "Please enter your 4-digit Pin-Code, to Secure your App.",
             "PIN_CODE" : "Pin Code",
-            "HOW_TO_SECURE_APP" : "How do you wont to secure your App?",
+            "HOW_TO_SECURE_APP" : "How do you want to secure your App?",
             "ENTER_SEED" : "Please enter your Seed, to login to your Wallet."
     },
     "PLACEHOLDER" : {
@@ -137,7 +138,8 @@ goiotaApp.config(['$translateProvider', function($translateProvider){
         }
     },
     "LOADING" : {
-        "LABEL" : "Loading"
+        "LABEL" : "Loading",
+        "TAKE_A_WHILE" : "Loadin your wallet, can take a while"
     }
   });
 

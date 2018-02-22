@@ -53,10 +53,15 @@ goiotaAppCtrl.controller('SendCtrl', function (
 
             if($scope.isAddress($scope.sendData.address)) {
 
+              if($scope.sendData.amount > 0) {
+
                   LoadingService.show();
 
                   IotaService.sendTransfer($scope.sendData);
 
+                } else {
+                  ToastMsgService.error("ERROR.ENTER_SEND_AMOUNT");
+                }
 
             } else {
               ToastMsgService.error("ERROR.ADDRESS_NOT_VALID");
@@ -74,18 +79,26 @@ goiotaAppCtrl.controller('SendCtrl', function (
 
           if($scope.isAddress($scope.sendData.address)) {
 
-              var confirmPopup = $ionicPopup.confirm({
-                title: 'Confirm Transaction',
-                template: 'Do you really wont to transfer ' +  $scope.sendData.amount + ' ' +  $scope.sendData.unit + ' ?'
-              });
+              if($scope.sendData.amount > 0) {
 
-              confirmPopup.then(function(res) {
-                if(res) {
-                  $scope.transferPayment();
-                } else {
+                $scope.changeUnit();
 
-                }
-              });
+                var confirmPopup = $ionicPopup.confirm({
+                  title: 'Confirm Transaction',
+                  template: 'Do you really wont to transfer ' +  $scope.sendData.amount + ' ' +  $scope.sendData.unit + ' ?'
+                });
+
+                confirmPopup.then(function(res) {
+                  if(res) {
+                    $scope.transferPayment();
+                  } else {
+
+                  }
+                });
+
+              } else {
+                ToastMsgService.error("ERROR.ENTER_SEND_AMOUNT");
+              }
 
           } else {
             ToastMsgService.error("ERROR.ADDRESS_NOT_VALID");
@@ -131,6 +144,16 @@ goiotaAppCtrl.controller('SendCtrl', function (
            disableAnimations : true
        }
     );
+
+  }
+
+  $scope.changeUnit = function () {
+
+    if($scope.sendData.unit == "i") {
+
+      $scope.sendData.amount = parseFloat($scope.sendData.amount);
+
+    }
 
   }
 
